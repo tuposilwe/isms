@@ -120,8 +120,8 @@ const HomeTable = () => {
       <DataTable>
         <DataTable.Header style={styles.tableHeader}>
           <DataTable.Title>Status</DataTable.Title>
-          <DataTable.Title style={{ flex: 3 }}>Subject Name</DataTable.Title>
-          <DataTable.Title>Code</DataTable.Title>
+          <DataTable.Title style={{ flex: 4 }}>Subject Name</DataTable.Title>
+          <DataTable.Title style={{ flex: 2 }}>Code</DataTable.Title>
         </DataTable.Header>
 
         {subjects.map((item) => (
@@ -134,8 +134,8 @@ const HomeTable = () => {
                   <Entypo name="warning" size={20} color="red" />
                 )}
               </DataTable.Cell>
-              <DataTable.Cell style={{ flex: 3 }}>{item.name}</DataTable.Cell>
-              <DataTable.Cell>{item.code}</DataTable.Cell>
+              <DataTable.Cell style={{ flex: 4 }}>{item.name}</DataTable.Cell>
+              <DataTable.Cell style={{ flex: 2 }}>{item.code}</DataTable.Cell>
             </DataTable.Row>
           </Pressable>
         ))}
