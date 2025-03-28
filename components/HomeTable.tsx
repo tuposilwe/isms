@@ -4,20 +4,38 @@ import { Appbar, DataTable } from "react-native-paper";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { ScrollView } from "react-native-gesture-handler";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import Entypo from "@expo/vector-icons/Entypo";
 
 const subjects = [
   {
     id: "1",
     name: "Information Systems Security and Auditing",
     code: "CYU08209",
+    complete: true,
   },
-  { id: "2", name: "Database Security", code: "CYU08212" },
-  { id: "3", name: "Cryptology and Coding Theory", code: "CYU08211" },
-  { id: "4", name: "Cryptology and Coding Theory", code: "CYU08211" },
-  { id: "5", name: "Database Security", code: "CYU08212" },
-  { id: "6", name: "Digital Forensic", code: "CYU08210" },
-  { id: "7", name: "Social and Ethical Issues in Computing", code: "CYU08207" },
-  { id: "8", name: "Individual Project", code: "CYU08208" },
+  { id: "2", name: "Database Security", code: "CYU08212", complete: false },
+  {
+    id: "3",
+    name: "Cryptology and Coding Theory",
+    code: "CYU08211",
+    complete: false,
+  },
+  {
+    id: "4",
+    name: "Cryptology and Coding Theory",
+    code: "CYU08211",
+    complete: true,
+  },
+  { id: "5", name: "Database Security", code: "CYU08212", complete: true },
+  { id: "6", name: "Digital Forensic", code: "CYU08210", complete: false },
+  {
+    id: "7",
+    name: "Social and Ethical Issues in Computing",
+    code: "CYU08207",
+    complete: false,
+  },
+  { id: "8", name: "Individual Project", code: "CYU08208", complete: true },
 ];
 
 const HomeTable = () => {
@@ -81,16 +99,22 @@ const HomeTable = () => {
       <DataTable>
         {/* Table Header */}
         <DataTable.Header style={styles.tableHeader}>
-          {/* <DataTable.Title>#</DataTable.Title> */}
-          <DataTable.Title style={{ flex: 2 }}>Subject Name</DataTable.Title>
+          <DataTable.Title style={{ flex: 1 }}>Status</DataTable.Title>
+          <DataTable.Title style={{ flex: 3 }}>Subject Name</DataTable.Title>
           <DataTable.Title>Code</DataTable.Title>
         </DataTable.Header>
 
         {/* Table Rows */}
         {subjects.map((item) => (
           <DataTable.Row key={item.id}>
-            {/* <DataTable.Cell>{item.id}</DataTable.Cell> */}
-            <DataTable.Cell style={{ flex: 2 }}>{item.name}</DataTable.Cell>
+            <DataTable.Cell style={{ flex: 0.5 }}>
+              {item.complete ? (
+                <Ionicons name="checkmark-sharp" size={20} color="green" />
+              ) : (
+                <Entypo name="warning" size={20} color="red" />
+              )}
+            </DataTable.Cell>
+            <DataTable.Cell style={{ flex: 3 }}>{item.name}</DataTable.Cell>
             <DataTable.Cell>{item.code}</DataTable.Cell>
           </DataTable.Row>
         ))}
@@ -109,11 +133,11 @@ const styles = StyleSheet.create({
   },
   tableHeader: {
     backgroundColor: "#F5F5F5",
-    marginTop:5
+    marginTop: 5,
   },
   header: {
     backgroundColor: "#B71C1C",
-    borderRadius:4
+    borderRadius: 4,
   },
   infoContainer: {
     marginBottom: 10,
