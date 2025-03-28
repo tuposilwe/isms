@@ -109,9 +109,11 @@ const styles = StyleSheet.create({
   },
   tableHeader: {
     backgroundColor: "#F5F5F5",
+    marginTop:5
   },
   header: {
     backgroundColor: "#B71C1C",
+    borderRadius:4
   },
   infoContainer: {
     marginBottom: 10,
