@@ -2,96 +2,11 @@ import { View, Text, ScrollView, Dimensions } from "react-native";
 import React from "react";
 import useFilter from "@/hooks/useFilter";
 import { DataTable, List } from "react-native-paper";
+import { data, data2 } from "@/constants/data";
 
-const window = Dimensions.get("window");
+export const window = Dimensions.get("window");
 const Coursework = () => {
   const { params } = useFilter();
-
-  const data = [
-    {
-      id: 1,
-      course: "Introduction to Social Psychology",
-      code: "CYU08106",
-      credits: 6,
-      assignments: ["T1 - 5.0", "A1 - 6.0", "A2 - 7.0", "A3 - 7.0"],
-      marks: 25.0,
-    },
-    {
-      id: 2,
-      course: "Vulnerability Analysis",
-      code: "CYU08102",
-      credits: 10,
-      assignments: ["T1 - 13.0", "A1 - 16.0"],
-      marks: 29.0,
-    },
-    {
-      id: 3,
-      course: "Wireless Networking",
-      code: "CYU08105",
-      credits: 8,
-      assignments: ["A1 - 33.0"],
-      marks: 33.0,
-    },
-    {
-      id: 4,
-      course: "IT Project Management",
-      code: "CYU08101",
-      credits: 12,
-      assignments: ["T1 - 8.8", "A1 - 14.0"],
-      marks: 22.8,
-    },
-    {
-      id: 5,
-      course: "Network Management and Administration",
-      code: "CYU08103",
-      credits: 10,
-      assignments: ["A1 - 11.0", "A2 - 15.0", "T1 - 0.0"],
-      marks: 26.0,
-    },
-    {
-      id: 6,
-      course: "Data Structure and Algorithms",
-      code: "CYU08104",
-      credits: 12,
-      assignments: ["A1 - 14.0", "A2 - 10.0", "T1 - 7.0"],
-      marks: 31.0,
-    },
-  ];
-
-  const data2 = [
-    {
-      id: 7,
-      course: "Kubernetes and Docker Essentials",
-      code: "CYU08107",
-      credits: 8,
-      assignments: ["T1 - 10.0", "A1 - 15.0", "A2 - 12.0"],
-      marks: 37.0,
-    },
-    {
-      id: 8,
-      course: "Advanced Kubernetes and Cloud Native Applications",
-      code: "CYU08108",
-      credits: 10,
-      assignments: ["T1 - 12.0", "A1 - 18.0", "A2 - 14.0"],
-      marks: 44.0,
-    },
-    {
-      id: 9,
-      course: "Machine Learning Fundamentals",
-      code: "CYU08109",
-      credits: 12,
-      assignments: ["T1 - 14.0", "A1 - 20.0", "A2 - 18.0"],
-      marks: 52.0,
-    },
-    {
-      id: 10,
-      course: "Deep Learning and Neural Networks",
-      code: "CYU08110",
-      credits: 12,
-      assignments: ["T1 - 16.0", "A1 - 22.0", "A2 - 20.0"],
-      marks: 58.0,
-    },
-  ];
 
   return (
     <ScrollView
@@ -102,7 +17,7 @@ const Coursework = () => {
         flexDirection: "column",
       }}
     >
-      <View style={{ padding: 16, alignItems: "center" }}>
+      <View style={{ padding: 9, marginTop: 15, alignItems: "center" }}>
         <Text style={{ fontSize: 18, fontWeight: "bold", marginBottom: 10 }}>
           {params.tab} COURSEWORK RESULTS
         </Text>
@@ -156,8 +71,11 @@ const Coursework = () => {
         ))}
       </DataTable>
 
-      <View style={{ padding: 16, alignItems: "center" }}>
-        <Text style={{ fontSize: 18, fontWeight: "bold", marginBottom: 10 }}>
+      <View style={{ padding: 9, marginTop: 15, alignItems: "center" }}>
+        <Text
+          numberOfLines={1}
+          style={{ fontSize: 18, fontWeight: "bold", marginBottom: 10 }}
+        >
           {params.tab?.replace("1", "2")} COURSEWORK RESULTS
         </Text>
       </View>
