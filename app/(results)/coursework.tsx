@@ -31,11 +31,10 @@ const Coursework = () => {
             backgroundColor: "#1345a1",
           }}
         >
-          <DataTable.Title>
-            <Text style={{ color: "white", fontWeight: "bold" }}>No</Text>
-          </DataTable.Title>
           <DataTable.Title style={{ flex: 6 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Course</Text>
+            <Text style={{ color: "white", fontWeight: "bold" }}>
+              SEMISTER I RESULTS
+            </Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 4 }}>
             <Text style={{ color: "white", fontWeight: "bold" }}>Credits</Text>
@@ -69,18 +68,7 @@ const Coursework = () => {
             <DataTable.Cell style={{ flex: 2 }}>{item.marks}</DataTable.Cell>
           </DataTable.Row>
         ))}
-      </DataTable>
 
-      <View style={{ padding: 9, marginTop: 15, alignItems: "center" }}>
-        <Text
-          numberOfLines={1}
-          style={{ fontSize: 18, fontWeight: "bold", marginBottom: 10 }}
-        >
-          {params.tab?.replace("1", "2")} COURSEWORK RESULTS
-        </Text>
-      </View>
-
-      <DataTable>
         <DataTable.Header
           style={{
             // borderWidth: 1,
@@ -88,11 +76,10 @@ const Coursework = () => {
             backgroundColor: "#1345a1",
           }}
         >
-          <DataTable.Title>
-            <Text style={{ color: "white", fontWeight: "bold" }}>No</Text>
-          </DataTable.Title>
           <DataTable.Title style={{ flex: 6 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Course</Text>
+            <Text style={{ color: "white", fontWeight: "bold" }}>
+              SEMISTER II RESULTS
+            </Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 4 }}>
             <Text style={{ color: "white", fontWeight: "bold" }}>Credits</Text>
