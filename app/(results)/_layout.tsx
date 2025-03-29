@@ -1,19 +1,27 @@
 import React from "react";
-import { Alert, Pressable, StyleSheet, Text } from "react-native";
+import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import { MaterialTabBar, Tabs } from "react-native-collapsible-tab-view";
 import Coursework from "./coursework";
 import Seresults from "./seresults";
+import Filters from "@/components/Filter";
 
 const HEADER_HEIGHT = 100;
 
 const Header = () => {
   return (
-    <Pressable
-      onPress={() => Alert.alert("Header Clicked! ")}
-      style={[styles.header, { height: HEADER_HEIGHT }]}
-    >
-      <Text className="flex">Header Goes Here</Text>
-    </Pressable>
+    <View style={[styles.header]}>
+      <Text
+        style={{
+          flex: 1,
+          padding: 10,
+          fontWeight: "bold",
+        }}
+      >
+        NTA Levels
+      </Text>
+
+      <Filters />
+    </View>
   );
 };
 
