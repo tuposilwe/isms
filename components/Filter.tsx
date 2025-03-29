@@ -35,11 +35,8 @@ const Filters = () => {
         <TouchableOpacity
           onPress={() => {
             handleTabPress(item.title);
-
-            Alert.alert("Hey Pal", "I'm Tab");
             if (selectedTab === item.title) {
               setSelectedTab("");
-
               return;
             }
             setSelectedTab(item.title);
