@@ -3,6 +3,8 @@ import { Text, View } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { DataTable } from "react-native-paper";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import generatePdf from "@/lib/generatePdf";
+
 
 const payments = () => {
   const transactions = [
@@ -104,6 +106,8 @@ const payments = () => {
                     alignItems: "center",
                     marginTop: 2,
                   }}
+                 onPress={() => generatePdf()}
+
                 >
                   <Text style={{ marginRight: 3 }}>{item.receipt}</Text>
 
