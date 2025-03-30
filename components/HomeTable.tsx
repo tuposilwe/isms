@@ -12,11 +12,26 @@ import RadioGroup, { RadioButtonProps } from "react-native-radio-buttons-group";
 
 // Sample Subjects Data
 const initialSubjects = [
-  { id: "1", name: "Information Systems Security and Auditing", code: "CYU08209", complete: true },
+  {
+    id: "1",
+    name: "Information Systems Security and Auditing",
+    code: "CYU08209",
+    complete: true,
+  },
   { id: "2", name: "Database Security", code: "CYU08212", complete: false },
-  { id: "3", name: "Cryptology and Coding Theory", code: "CYU08211", complete: false },
+  {
+    id: "3",
+    name: "Cryptology and Coding Theory",
+    code: "CYU08211",
+    complete: false,
+  },
   { id: "4", name: "Digital Forensic", code: "CYU08210", complete: false },
-  { id: "5", name: "Social and Ethical Issues in Computing", code: "CYU08207", complete: false },
+  {
+    id: "5",
+    name: "Social and Ethical Issues in Computing",
+    code: "CYU08207",
+    complete: false,
+  },
   { id: "6", name: "Individual Project", code: "CYU08208", complete: true },
 ];
 
@@ -31,7 +46,9 @@ const HomeTable = () => {
   const { isModalVisible, toggleModal } = useSettings();
   const [subjects, setSubjects] = useState(initialSubjects);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
-  const [selectedMarks, setSelectedMarks] = useState<Record<string, string>>({});
+  const [selectedMarks, setSelectedMarks] = useState<Record<string, string>>(
+    {}
+  );
 
   const radioButtons: RadioButtonProps[] = useMemo(
     () => [
@@ -54,7 +71,10 @@ const HomeTable = () => {
     if (subject) {
       if (subject.complete) {
         // Show alert if the subject is already complete
-        Alert.alert("Already Evaluated", `The subject "${subjectName}" has already been evaluated.`);
+        Alert.alert(
+          "Already Evaluated",
+          `The subject "${subjectName}" has already been evaluated.`
+        );
       } else {
         setSelectedSubject(subjectName);
         setSelectedMarks({});
@@ -73,13 +93,20 @@ const HomeTable = () => {
   };
 
   // Update Subject Status if All Categories are Marked
-  const updateSubjectStatus = (subjectName: string, updatedMarks: Record<string, string>) => {
-    const allMarked = evaluationCategories.every((category) => updatedMarks[category]);
+  const updateSubjectStatus = (
+    subjectName: string,
+    updatedMarks: Record<string, string>
+  ) => {
+    const allMarked = evaluationCategories.every(
+      (category) => updatedMarks[category]
+    );
 
     if (allMarked) {
       setSubjects((prevSubjects) =>
         prevSubjects.map((subject) =>
-          subject.name === subjectName ? { ...subject, complete: true } : subject
+          subject.name === subjectName
+            ? { ...subject, complete: true }
+            : subject
         )
       );
     }
@@ -92,29 +119,54 @@ const HomeTable = () => {
   };
 
   // Check if all categories are marked
-  const isSaveDisabled = Object.keys(selectedMarks).length < evaluationCategories.length;
+  const isSaveDisabled =
+    Object.keys(selectedMarks).length < evaluationCategories.length;
 
   return (
     <ScrollView style={styles.container}>
       {/* Info Section */}
       <View style={styles.infoContainer}>
         <View style={styles.row}>
-          <Feather name="clock" size={15} color="black" style={{ marginRight: 3 }} />
+          <Feather
+            name="clock"
+            size={15}
+            color="black"
+            style={{ marginRight: 3 }}
+          />
           <Text style={styles.infoText}>Year of Study: 1</Text>
         </View>
         <View style={styles.row}>
-          <FontAwesome name="level-up" size={15} color="black" style={{ marginRight: 3 }} />
+          <FontAwesome
+            name="level-up"
+            size={15}
+            color="black"
+            style={{ marginRight: 3 }}
+          />
           <Text style={styles.infoText}>NTA Level: 8</Text>
         </View>
         <View style={styles.row}>
-          <FontAwesome name="calendar" size={14} color="black" style={{ marginRight: 4 }} />
+          <FontAwesome
+            name="calendar"
+            size={14}
+            color="black"
+            style={{ marginRight: 4 }}
+          />
           <Text style={styles.infoText}>Academic Year: 2023/2024</Text>
         </View>
       </View>
 
-      <Appbar.Header style={styles.header}>
-        <Appbar.Content title="Summative Evaluation" titleStyle={{ color: "white" }} />
-      </Appbar.Header>
+      <View
+        style={{
+          backgroundColor: "#B71C1C",
+          borderRadius: 4,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 20,
+          marginBottom: 3,
+        }}
+      >
+        <Text style={{ color: "white" }}>SUMMATIVE EVALUATION</Text>
+      </View>
 
       {/* Table */}
       <DataTable>
@@ -125,7 +177,10 @@ const HomeTable = () => {
         </DataTable.Header>
 
         {subjects.map((item) => (
-          <Pressable key={item.id} onPress={() => openEvaluationModal(item.name)}>
+          <Pressable
+            key={item.id}
+            onPress={() => openEvaluationModal(item.name)}
+          >
             <DataTable.Row>
               <DataTable.Cell>
                 {item.complete ? (
@@ -142,20 +197,33 @@ const HomeTable = () => {
       </DataTable>
 
       {/* Modal for Evaluation */}
-      <Modal animationType="slide" visible={isModalVisible} transparent={true} onDismiss={() => toggleModal()}>
+      <Modal
+        animationType="slide"
+        visible={isModalVisible}
+        transparent={true}
+        onDismiss={() => toggleModal()}
+      >
         <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}>
           <View style={styles.modalContent}>
             <ScrollView>
-              <Pressable onPress={() => toggleModal()} style={{ alignSelf: "flex-end" }}>
+              <Pressable
+                onPress={() => toggleModal()}
+                style={{ alignSelf: "flex-end" }}
+              >
                 <MaterialIcons name="cancel" size={24} color="black" />
               </Pressable>
 
               {/* Display Selected Subject Name */}
               <Text style={styles.modalTitle}>{selectedSubject}</Text>
 
-              <Text style={{ fontWeight: "900" }}>Evaluation of Teaching-Learning Process</Text>
+              <Text style={{ fontWeight: "900" }}>
+                Evaluation of Teaching-Learning Process
+              </Text>
               <Text>(Please tick the appropriate box)</Text>
-              <Text style={{ fontWeight: "300" }}>KEY: 1 - Poor, 2 - Satisfactory, 3 - Good, 4 - Very Good, 5 - Excellent</Text>
+              <Text style={{ fontWeight: "300" }}>
+                KEY: 1 - Poor, 2 - Satisfactory, 3 - Good, 4 - Very Good, 5 -
+                Excellent
+              </Text>
 
               <DataTable>
                 <DataTable.Header style={styles.tableHeader}>
@@ -180,14 +248,23 @@ const HomeTable = () => {
                       />
                     </DataTable.Cell>
                     <DataTable.Cell>
-                      {selectedMarks[category] ? getValueById(selectedMarks[category]!) : "None"}
+                      {selectedMarks[category]
+                        ? getValueById(selectedMarks[category]!)
+                        : "None"}
                     </DataTable.Cell>
                   </DataTable.Row>
                 ))}
               </DataTable>
 
               {/* Save Button */}
-              <Pressable onPress={saveEvaluation} disabled={isSaveDisabled} style={[styles.saveButton, isSaveDisabled && styles.disabledButton]}>
+              <Pressable
+                onPress={saveEvaluation}
+                disabled={isSaveDisabled}
+                style={[
+                  styles.saveButton,
+                  isSaveDisabled && styles.disabledButton,
+                ]}
+              >
                 <Text style={styles.saveButtonText}>Save</Text>
               </Pressable>
             </ScrollView>

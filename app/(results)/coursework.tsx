@@ -26,26 +26,25 @@ const Coursework = () => {
       <DataTable>
         <DataTable.Header
           style={{
-            // borderWidth: 1,
-            borderRadius: 4,
-            backgroundColor: "#1345a1",
+            borderWidth: 0.2,
+            borderBottomColor: "#10497E",
           }}
         >
           <DataTable.Title style={{ flex: 6 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>
+            <Text style={{ color: "black", fontWeight: "bold" }}>
               SEMISTER I RESULTS
             </Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 4 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Credits</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>Credits</Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 4 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>
+            <Text style={{ color: "black", fontWeight: "bold" }}>
               Assignments
             </Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 2 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Marks</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>Marks</Text>
           </DataTable.Title>
         </DataTable.Header>
 
@@ -72,25 +71,27 @@ const Coursework = () => {
         <DataTable.Header
           style={{
             // borderWidth: 1,
-            borderRadius: 4,
-            backgroundColor: "#1345a1",
+            // borderRadius: 4,
+            // backgroundColor: "#1345a1",
+            borderWidth: 0.2,
+            borderBottomColor: "#10497E",
           }}
         >
           <DataTable.Title style={{ flex: 6 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>
+            <Text style={{ color: "black", fontWeight: "bold" }}>
               SEMISTER II RESULTS
             </Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 4 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Credits</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>Credits</Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 4 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>
+            <Text style={{ color: "black", fontWeight: "bold" }}>
               Assignments
             </Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 2 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Marks</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>Marks</Text>
           </DataTable.Title>
         </DataTable.Header>
 

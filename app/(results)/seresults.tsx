@@ -26,19 +26,19 @@ const Seresults = () => {
         <DataTable.Header
           style={{
             // borderWidth: 1,
-            borderRadius: 4,
-            backgroundColor: "#1345a1",
+            borderWidth: 0.2,
+            borderBottomColor: "#10497E",
           }}
         >
           <DataTable.Title>
-            <Text style={{ color: "white", fontWeight: "bold" }}>No</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>No</Text>
           </DataTable.Title>
           <DataTable.Title style={{ flex: 6 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Course</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>Course</Text>
           </DataTable.Title>
 
           <DataTable.Title style={{ flex: 1 }}>
-            <Text style={{ color: "white", fontWeight: "bold" }}>Grades.</Text>
+            <Text style={{ color: "black", fontWeight: "bold" }}>Grades.</Text>
           </DataTable.Title>
         </DataTable.Header>
 
@@ -47,7 +47,9 @@ const Seresults = () => {
             <DataTable.Cell>{index + 1}</DataTable.Cell>
             <DataTable.Cell style={{ flex: 6 }}>
               <View>
-                <Text>{item.code} - {item.course}</Text>
+                <Text>
+                  {item.code} - {item.course}
+                </Text>
               </View>
             </DataTable.Cell>
             <DataTable.Cell style={{ flex: 1 }}>{item.grade}</DataTable.Cell>
