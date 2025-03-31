@@ -101,7 +101,10 @@ const PaymentFilter = () => {
               </Pressable>
 
               <DataTable>
-                <Text style={{ fontWeight: "900" }}>{selectedTab}</Text>
+                <Text style={{ fontWeight: "900",
+                marginLeft:9
+
+                }}>{selectedTab}</Text>
 
                 <DataTable.Header>
                   <DataTable.Title>
