@@ -205,7 +205,7 @@ const HomeTable = () => {
       >
         <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}>
           <View style={styles.modalContent}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
               <Pressable
                 onPress={() => toggleModal()}
                 style={{ alignSelf: "flex-end" }}
