@@ -1,12 +1,43 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, Image, ImageBackground } from "react-native";
+import React from "react";
+import images from "@/constants/image";
 
 const about = () => {
   return (
-    <View>
-      <Text>about</Text>
-    </View>
-  )
-}
+    <View
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 27,
+      }}
+    >
+      <Image
+        source={images.isms}
+        style={{
+          width: 150,
+          height: 150,
+          tintColor: "#ffffff",
+          borderWidth: 2,
+          borderColor: "#ffffff",
+          backgroundColor: "#10497E",
+          borderRadius: 20,
+          padding: 30,
+          resizeMode: "cover",
+          overflow: "hidden",
+        }}
+      />
 
-export default about
+      <View style={{
+        justifyContent:"center",
+        alignItems:"center",
+        gap:7,
+        marginTop:7
+      }}>
+        <Text style={{fontWeight:"bold"}}>ISMS</Text>
+        <Text style={{fontWeight:"bold"}}>Version 0.0.1</Text>
+      </View>
+    </View>
+  );
+};
+
+export default about;
