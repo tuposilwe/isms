@@ -1,6 +1,6 @@
-import { View, Text, Image, ImageBackground } from "react-native";
-import React from "react";
 import images from "@/constants/image";
+import React from "react";
+import { Image, Text, View } from "react-native";
 
 const about = () => {
   return (
