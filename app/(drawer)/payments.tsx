@@ -1,11 +1,10 @@
+import PaymentFilter from "@/components/PaymentFilter";
+import generatePdf from "@/lib/generatePdf";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import React from "react";
 import { Text, View } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { DataTable } from "react-native-paper";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import generatePdf from "@/lib/generatePdf";
-import Filter from "@/components/Filter";
-import PaymentFilter from "@/components/PaymentFilter";
 
 const payments = () => {
   const transactions = [
@@ -69,142 +68,431 @@ const payments = () => {
       }}
       horizontal
     >
-      <PaymentFilter/>
+      <ScrollView>
+        <PaymentFilter />
 
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
-          REECE NELSON MANDELA
-        </Text>
-        <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
-          Financial Year 2021/2022
-        </Text>
-        <DataTable>
-          <DataTable.Header
-            style={{
-              borderWidth: 0.1,
-              borderBottomColor: "#10497E",
-            }}
-          >
-            <DataTable.Title style={{ flex: 10 }}>TransDate</DataTable.Title>
-            <DataTable.Title style={{ flex: 7 }}>
-              Transaction Type
-            </DataTable.Title>
-            <DataTable.Title style={{ flex: 11 }}>
-              Control No./Receipt No.
-            </DataTable.Title>
-            <DataTable.Title style={{ flex: 6 }}>Debit</DataTable.Title>
-            <DataTable.Title style={{ flex: 7 }}>Credit</DataTable.Title>
-            <DataTable.Title style={{ flex: 6 }}>Balance</DataTable.Title>
-          </DataTable.Header>
-
-          {transactions.map((item, index) => (
-            <DataTable.Row key={index}>
-              <DataTable.Cell style={{ flex: 10 }}>{item.date}</DataTable.Cell>
-              <DataTable.Cell style={{ flex: 7 }}>{item.type}</DataTable.Cell>
-              <DataTable.Cell style={{ flex: 11 }}>
-                <TouchableOpacity
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginTop: 2,
-                  }}
-                  onPress={() => generatePdf()}
-                >
-                  <Text style={{ marginRight: 3 }}>{item.receipt}</Text>
-
-                  {item.receipt !== "" && (
-                    <FontAwesome name="print" size={14} color="blue" />
-                  )}
-                </TouchableOpacity>
-              </DataTable.Cell>
-              <DataTable.Cell style={{ flex: 6 }}>{item.debit}</DataTable.Cell>
-              <DataTable.Cell style={{ flex: 7 }}>{item.credit}</DataTable.Cell>
-              <DataTable.Cell style={{ flex: 6 }}>
-                {item.balance}
-              </DataTable.Cell>
-            </DataTable.Row>
-          ))}
-          <DataTable.Row>
-            <DataTable.Cell>
-              <View></View>
-            </DataTable.Cell>
-          </DataTable.Row>
-
-          <DataTable.Row>
-            <DataTable.Cell>
-              <View
-                style={{
-                  backgroundColor: "#10497E",
-                  borderRadius: 8,
-                  padding: 10,
-                  marginLeft: "35%",
-                }}
-              >
-                <Text
-                  style={{
-                    color: "white",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Tutution Fee Control Number
-                </Text>
-              </View>
-            </DataTable.Cell>
-          </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>
-              <View>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                  }}
-                >
-                  Other Payments
-                </Text>
-              </View>
-            </DataTable.Cell>
-          </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>
-              <View>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                  }}
-                >
-                  Total
-                </Text>
-              </View>
-            </DataTable.Cell>
-          </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
+            REECE NELSON MANDELA
+          </Text>
+          <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
+            Financial Year 2025/2026
+          </Text>
+          <DataTable>
+            <DataTable.Header
               style={{
-                marginLeft: "70%",
-                borderRightWidth: 0.2,
+                borderWidth: 0.1,
+                borderBottomColor: "#10497E",
               }}
             >
-              <Text
+              <DataTable.Title style={{ flex: 10 }}>TransDate</DataTable.Title>
+              <DataTable.Title style={{ flex: 7 }}>
+                Transaction Type
+              </DataTable.Title>
+              <DataTable.Title style={{ flex: 11 }}>
+                Control No./Receipt No.
+              </DataTable.Title>
+              <DataTable.Title style={{ flex: 6 }}>Debit</DataTable.Title>
+              <DataTable.Title style={{ flex: 7 }}>Credit</DataTable.Title>
+              <DataTable.Title style={{ flex: 6 }}>Balance</DataTable.Title>
+            </DataTable.Header>
+
+            {transactions.map((item, index) => (
+              <DataTable.Row key={index}>
+                <DataTable.Cell style={{ flex: 10 }}>
+                  {item.date}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 7 }}>{item.type}</DataTable.Cell>
+                <DataTable.Cell style={{ flex: 11 }}>
+                  <TouchableOpacity
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginTop: 2,
+                    }}
+                    onPress={() => generatePdf()}
+                  >
+                    <Text style={{ marginRight: 3 }}>{item.receipt}</Text>
+
+                    {item.receipt !== "" && (
+                      <FontAwesome name="print" size={14} color="blue" />
+                    )}
+                  </TouchableOpacity>
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 6 }}>
+                  {item.debit}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 7 }}>
+                  {item.credit}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 6 }}>
+                  {item.balance}
+                </DataTable.Cell>
+              </DataTable.Row>
+            ))}
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View></View>
+              </DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View
+                  style={{
+                    backgroundColor: "#10497E",
+                    borderRadius: 8,
+                    padding: 10,
+                    marginLeft: "35%",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Tutution Fee Control Number
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Other Payments
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Total
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell
                 style={{
-                  fontWeight: "bold",
+                  marginLeft: "70%",
+                  borderRightWidth: 0.2,
                 }}
               >
-                1,853,000.00
-              </Text>
-            </DataTable.Cell>
-            <DataTable.Cell>
-              <Text
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  1,853,000.00
+                </Text>
+              </DataTable.Cell>
+              <DataTable.Cell>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  0.00
+                </Text>
+              </DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
+        </View>
+
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
+            REECE NELSON MANDELA
+          </Text>
+          <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
+            Financial Year 2022/2023
+          </Text>
+          <DataTable>
+            <DataTable.Header
+              style={{
+                borderWidth: 0.1,
+                borderBottomColor: "#10497E",
+              }}
+            >
+              <DataTable.Title style={{ flex: 10 }}>TransDate</DataTable.Title>
+              <DataTable.Title style={{ flex: 7 }}>
+                Transaction Type
+              </DataTable.Title>
+              <DataTable.Title style={{ flex: 11 }}>
+                Control No./Receipt No.
+              </DataTable.Title>
+              <DataTable.Title style={{ flex: 6 }}>Debit</DataTable.Title>
+              <DataTable.Title style={{ flex: 7 }}>Credit</DataTable.Title>
+              <DataTable.Title style={{ flex: 6 }}>Balance</DataTable.Title>
+            </DataTable.Header>
+
+            {transactions.map((item, index) => (
+              <DataTable.Row key={index}>
+                <DataTable.Cell style={{ flex: 10 }}>
+                  {item.date}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 7 }}>{item.type}</DataTable.Cell>
+                <DataTable.Cell style={{ flex: 11 }}>
+                  <TouchableOpacity
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginTop: 2,
+                    }}
+                    onPress={() => generatePdf()}
+                  >
+                    <Text style={{ marginRight: 3 }}>{item.receipt}</Text>
+
+                    {item.receipt !== "" && (
+                      <FontAwesome name="print" size={14} color="blue" />
+                    )}
+                  </TouchableOpacity>
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 6 }}>
+                  {item.debit}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 7 }}>
+                  {item.credit}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 6 }}>
+                  {item.balance}
+                </DataTable.Cell>
+              </DataTable.Row>
+            ))}
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View></View>
+              </DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View
+                  style={{
+                    backgroundColor: "#10497E",
+                    borderRadius: 8,
+                    padding: 10,
+                    marginLeft: "35%",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Tutution Fee Control Number
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Other Payments
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Total
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell
                 style={{
-                  fontWeight: "bold",
+                  marginLeft: "70%",
+                  borderRightWidth: 0.2,
                 }}
               >
-                0.00
-              </Text>
-            </DataTable.Cell>
-          </DataTable.Row>
-        </DataTable>
-      </View>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  1,853,000.00
+                </Text>
+              </DataTable.Cell>
+              <DataTable.Cell>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  0.00
+                </Text>
+              </DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
+        </View>
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
+            REECE NELSON MANDELA
+          </Text>
+          <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
+            Financial Year 2021/2022
+          </Text>
+          <DataTable>
+            <DataTable.Header
+              style={{
+                borderWidth: 0.1,
+                borderBottomColor: "#10497E",
+              }}
+            >
+              <DataTable.Title style={{ flex: 10 }}>TransDate</DataTable.Title>
+              <DataTable.Title style={{ flex: 7 }}>
+                Transaction Type
+              </DataTable.Title>
+              <DataTable.Title style={{ flex: 11 }}>
+                Control No./Receipt No.
+              </DataTable.Title>
+              <DataTable.Title style={{ flex: 6 }}>Debit</DataTable.Title>
+              <DataTable.Title style={{ flex: 7 }}>Credit</DataTable.Title>
+              <DataTable.Title style={{ flex: 6 }}>Balance</DataTable.Title>
+            </DataTable.Header>
+
+            {transactions.map((item, index) => (
+              <DataTable.Row key={index}>
+                <DataTable.Cell style={{ flex: 10 }}>
+                  {item.date}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 7 }}>{item.type}</DataTable.Cell>
+                <DataTable.Cell style={{ flex: 11 }}>
+                  <TouchableOpacity
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginTop: 2,
+                    }}
+                    onPress={() => generatePdf()}
+                  >
+                    <Text style={{ marginRight: 3 }}>{item.receipt}</Text>
+
+                    {item.receipt !== "" && (
+                      <FontAwesome name="print" size={14} color="blue" />
+                    )}
+                  </TouchableOpacity>
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 6 }}>
+                  {item.debit}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 7 }}>
+                  {item.credit}
+                </DataTable.Cell>
+                <DataTable.Cell style={{ flex: 6 }}>
+                  {item.balance}
+                </DataTable.Cell>
+              </DataTable.Row>
+            ))}
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View></View>
+              </DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View
+                  style={{
+                    backgroundColor: "#10497E",
+                    borderRadius: 8,
+                    padding: 10,
+                    marginLeft: "35%",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Tutution Fee Control Number
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Other Payments
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Total
+                  </Text>
+                </View>
+              </DataTable.Cell>
+            </DataTable.Row>
+            <DataTable.Row>
+              <DataTable.Cell
+                style={{
+                  marginLeft: "70%",
+                  borderRightWidth: 0.2,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  1,853,000.00
+                </Text>
+              </DataTable.Cell>
+              <DataTable.Cell>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  0.00
+                </Text>
+              </DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
+        </View>
+      </ScrollView>
     </ScrollView>
   );
 };
