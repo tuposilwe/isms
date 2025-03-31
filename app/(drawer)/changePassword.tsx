@@ -75,8 +75,8 @@ const changePassword = () => {
                 <TouchableOpacity
                   style={{
                     backgroundColor: "#10497E",
-                    padding: 20,
-                    margin: 29,
+                    padding: 10,
+                    margin: 15,
                     borderRadius: 12,
                     justifyContent: "center",
                     alignItems: "center",

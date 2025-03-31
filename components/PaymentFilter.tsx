@@ -101,10 +101,9 @@ const PaymentFilter = () => {
               </Pressable>
 
               <DataTable>
-                <Text style={{ fontWeight: "900",
-                marginLeft:9
-
-                }}>{selectedTab}</Text>
+                <Text style={{ fontWeight: "900", marginLeft: 9 }}>
+                  {selectedTab}
+                </Text>
 
                 <DataTable.Header>
                   <DataTable.Title>
@@ -176,9 +175,9 @@ const PaymentFilter = () => {
                     <TouchableOpacity
                       style={{
                         backgroundColor: "#10497E",
-                        padding: 20,
-                        margin: 29,
                         borderRadius: 12,
+                        padding: 10,
+                        margin: 15,
                         justifyContent: "center",
                         alignItems: "center",
                         width: "70%",
