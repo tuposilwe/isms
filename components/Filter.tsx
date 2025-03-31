@@ -1,16 +1,16 @@
-import React from "react";
-import { Alert, ScrollView, Text, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
+import React from "react";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 
 import { tabs } from "@/constants/data";
 import useFilter from "@/hooks/useFilter";
 
-const Filters = () => {
+const Filter = () => {
   const { selectedTab, setSelectedTab } = useFilter();
 
   const handleTabPress = (currentTab: string) => {
     if (selectedTab === currentTab) {
-      setSelectedTab("");
+      setSelectedTab(selectedTab);
       router.setParams({ tab: "" });
       return;
     }
@@ -36,7 +36,7 @@ const Filters = () => {
           onPress={() => {
             handleTabPress(item.title);
             if (selectedTab === item.title) {
-              setSelectedTab("");
+              setSelectedTab(selectedTab);
               return;
             }
             setSelectedTab(item.title);
@@ -78,4 +78,4 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export default Filter;

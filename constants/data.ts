@@ -4,6 +4,21 @@ export const tabs = [
   { title: "NTA Level 8 Year 1", name: "NTA Level 8 Year 1" },
 ];
 
+export const controlNumber = [
+  {
+    title: "Tuition Fee Control Number",
+    name: "Tuition Fee Control Number",
+    backgroundColor: "#124c7c",
+    borderColor: "#201c1c",
+  },
+  {
+    title: "Other Payments Control Number",
+    name: "Other Payments Control Number",
+    backgroundColor: "#c52525",
+    borderColor: "#ededfa",
+  },
+];
+
 // Function to determine grade based on marks (assuming max marks is 60)
 const getRandomGrade = (marks: number) => {
   const percentage = (marks / 60) * 100; // Assuming max score is 60
@@ -112,4 +127,4 @@ export const data2 = [
   },
 ];
 
-export const results = [...data,...data2]
+export const results = [...data, ...data2];

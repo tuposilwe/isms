@@ -1,9 +1,9 @@
+import Filter from "@/components/Filter";
 import React from "react";
-import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { MaterialTabBar, Tabs } from "react-native-collapsible-tab-view";
 import Coursework from "./coursework";
 import Seresults from "./seresults";
-import Filters from "@/components/Filter";
 
 const HEADER_HEIGHT = 100;
 
@@ -20,7 +20,7 @@ const Header = () => {
         NTA Levels
       </Text>
 
-      <Filters />
+      <Filter />
     </View>
   );
 };

@@ -5,9 +5,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React, { useMemo, useState } from "react";
-import { Modal, Pressable, StyleSheet, Text, View, Alert } from "react-native";
+import { Alert, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Appbar, DataTable } from "react-native-paper";
+import { DataTable } from "react-native-paper";
 import RadioGroup, { RadioButtonProps } from "react-native-radio-buttons-group";
 
 // Sample Subjects Data

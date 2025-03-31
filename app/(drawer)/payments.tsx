@@ -4,7 +4,8 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { DataTable } from "react-native-paper";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import generatePdf from "@/lib/generatePdf";
-
+import Filter from "@/components/Filter";
+import PaymentFilter from "@/components/PaymentFilter";
 
 const payments = () => {
   const transactions = [
@@ -68,6 +69,8 @@ const payments = () => {
       }}
       horizontal
     >
+      <PaymentFilter/>
+
       <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text style={{ marginBottom: 10, fontWeight: "bold" }}>
           REECE NELSON MANDELA
@@ -106,8 +109,7 @@ const payments = () => {
                     alignItems: "center",
                     marginTop: 2,
                   }}
-                 onPress={() => generatePdf()}
-
+                  onPress={() => generatePdf()}
                 >
                   <Text style={{ marginRight: 3 }}>{item.receipt}</Text>
 
