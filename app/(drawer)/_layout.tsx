@@ -2,7 +2,6 @@ import CustomDrawerContent from "@/components/CustomDrawerContent";
 import icons from "@/constants/icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Entypo from "@expo/vector-icons/Entypo";
-import EvilIcons from "@expo/vector-icons/EvilIcons";
 import {
   default as FontAwesome,
   default as FontAwesomeIcon,
@@ -79,7 +78,7 @@ const Layout = () => {
           drawerLabel: "MyProfile",
 
           drawerIcon: ({ size, color }) => (
-            <EvilIcons name="user" size={size} color={color} />
+            <MaterialIcons name="person-outline" size={size} color={color} />
           ),
         }}
       />
