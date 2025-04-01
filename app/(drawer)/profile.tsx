@@ -88,7 +88,6 @@ const Profile = () => {
     }
   };
 
-
   const { appIsReady } = useLoading();
 
   if (!appIsReady) {
@@ -162,16 +161,23 @@ const Profile = () => {
                       }}
                     >
                       <Text style={{ fontWeight: "bold" }}>Date of Birth</Text>
-                      <TextInput
+                      <TouchableOpacity
                         style={{
                           borderColor: "#b7b8c0",
                           borderWidth: 0.5,
                           flex: 1,
                         }}
                         onPress={showDatepicker}
-                        cursorColor="black"
-                        placeholder={date.toLocaleDateString("af-ZA")}
-                      />
+                      >
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            padding:10
+                          }}
+                        >
+                          {date.toLocaleDateString("af-ZA")}
+                        </Text>
+                      </TouchableOpacity>
                     </View>
                   </DataTable.Cell>
                 </DataTable.Row>
