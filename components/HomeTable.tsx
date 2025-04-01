@@ -1,14 +1,16 @@
+import useLoading from "@/hooks/useLoading";
 import useSettings from "@/hooks/useSettings";
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Alert, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { DataTable } from "react-native-paper";
 import RadioGroup, { RadioButtonProps } from "react-native-radio-buttons-group";
+import Loading from "./Loading";
 
 // Sample Subjects Data
 const initialSubjects = [
@@ -50,16 +52,19 @@ const HomeTable = () => {
     {}
   );
 
-  const radioButtons: RadioButtonProps[] = useMemo(
-    () => [
-      { id: "1", label: "1", value: "Poor" },
-      { id: "2", label: "2", value: "Satisfactory" },
-      { id: "3", label: "3", value: "Good" },
-      { id: "4", label: "4", value: "Very Good" },
-      { id: "5", label: "5", value: "Excellent" },
-    ],
-    []
-  );
+  const { appIsReady } = useLoading();
+
+  if (!appIsReady) {
+    return <Loading visible={true} message="Initializing..." />;
+  }
+
+  const radioButtons: RadioButtonProps[] = [
+    { id: "1", label: "1", value: "Poor" },
+    { id: "2", label: "2", value: "Satisfactory" },
+    { id: "3", label: "3", value: "Good" },
+    { id: "4", label: "4", value: "Very Good" },
+    { id: "5", label: "5", value: "Excellent" },
+  ];
 
   const getValueById = (id: string): string | undefined => {
     return radioButtons.find((button) => button.id === id)?.value;

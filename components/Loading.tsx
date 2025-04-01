@@ -1,12 +1,33 @@
-import React from "react";
-import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import React, { useRef } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import LottieView from "lottie-react-native";
 
-const Loading = ({ message = "Loading ..." }: { message?: string }) => (
-  <View style={styles.container}>
-    <ActivityIndicator size="large" color="#066341" />
-    <Text style={styles.text}>{message}</Text>
-  </View>
-);
+interface LoadingProps {
+  message?: string;
+  visible: boolean;
+}
+
+const Loading = ({ message = "Loading ...", visible }: LoadingProps) => {
+  const animation = useRef<LottieView>(null);
+
+  if (!visible) return null;
+
+  return (
+    <View style={styles.container}>
+      <LottieView
+        autoPlay
+        ref={animation}
+        style={{
+          width: 200,
+          height: 200,
+          backgroundColor: "white",
+        }}
+        source={require("@/assets/animations/loadx.json")}
+      />
+      <Text style={styles.text}>{message}</Text>
+    </View>
+  );
+};
 
 export default Loading;
 
@@ -15,7 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "white",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    zIndex: 999,
   },
   text: {
     marginTop: 10,

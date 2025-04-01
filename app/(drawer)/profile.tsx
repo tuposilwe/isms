@@ -1,4 +1,6 @@
+import Loading from "@/components/Loading";
 import useAvatar from "@/hooks/useAvatar";
+import useLoading from "@/hooks/useLoading";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import {
   DateTimePickerAndroid,
@@ -86,6 +88,12 @@ const Profile = () => {
     }
   };
 
+
+  const { appIsReady } = useLoading();
+
+  if (!appIsReady) {
+    return <Loading visible={true} message="Loading..." />;
+  }
   return (
     <ScrollView>
       <View style={styles.container}>

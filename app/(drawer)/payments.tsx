@@ -1,4 +1,6 @@
+import Loading from "@/components/Loading";
 import PaymentFilter from "@/components/PaymentFilter";
+import useLoading from "@/hooks/useLoading";
 import generatePdf from "@/lib/generatePdf";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import React from "react";
@@ -58,6 +60,11 @@ const payments = () => {
     },
   ];
 
+  const { appIsReady } = useLoading();
+
+  if (!appIsReady) {
+    return <Loading visible={true} message="Loading..." />;
+  }
   return (
     <ScrollView
       contentContainerStyle={{
