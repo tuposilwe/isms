@@ -77,7 +77,7 @@ const Profile = () => {
           to: avatarPath,
         });
 
-        setImage(avatarPath);
+        setImage(selectedImage);
         Alert.alert("Success", "Avatar updated successfully!");
       }
     } catch (error) {
@@ -98,7 +98,12 @@ const Profile = () => {
             alignItems: "center",
           }}
         >
-          <Image source={{ uri: image || defaultImage }} style={styles.image} />
+          {image && (
+            <Image
+              source={{ uri: image || defaultImage }}
+              style={styles.image}
+            />
+          )}
           <TouchableOpacity
             style={{
               position: "relative",

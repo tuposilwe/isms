@@ -29,10 +29,12 @@ const CustomDrawerContent = (props: any) => {
       <DrawerContentScrollView {...props}>
         <View style={styles.header}>
           <View style={styles.profileCircle}>
-            <Image
+
+          {image &&  <Image
               source={{ uri: image || defaultImage }}
               style={styles.avatar}
             />
+          }
           </View>
           <Text style={styles.text}>Welcome, Reece Nelson</Text>
         </View>
