@@ -170,7 +170,16 @@ const HomeTable = () => {
           marginBottom: 3,
         }}
       >
-        <Text style={{ color: "white" }}>SUMMATIVE EVALUATION</Text>
+        <Text
+          style={{
+            color: "white",
+            fontStyle: "italic",
+            fontWeight: "bold",
+            fontSize: 16,
+          }}
+        >
+          SUMMATIVE EVALUATION
+        </Text>
       </View>
 
       {/* Table */}
