@@ -7,6 +7,7 @@ import {
   configureReanimatedLogger,
   ReanimatedLogLevel,
 } from "react-native-reanimated";
+import { AvatarProvider } from "@/contexts/AvatarContext";
 
 export default function RootLayout() {
   // This is the default configuration
@@ -19,7 +20,9 @@ export default function RootLayout() {
     <GestureHandlerRootView>
       <SafeAreaProvider>
         <StatusBar style="light" backgroundColor="#10497E" />
-        <Stack screenOptions={{ headerShown: false }} />
+        <AvatarProvider>
+          <Stack screenOptions={{ headerShown: false }} />
+        </AvatarProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
