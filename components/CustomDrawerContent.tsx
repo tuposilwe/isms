@@ -1,14 +1,23 @@
+import useAvatar from "@/hooks/useAvatar";
 import { default as FontAwesomeIcon } from "@expo/vector-icons/FontAwesome";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
 import React from "react";
-import { BackHandler, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  BackHandler,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const CustomDrawerContent = (props: any) => {
   const { bottom } = useSafeAreaInsets();
+  const { image, defaultImage } = useAvatar();
 
   const closeApp = () => {
     console.log("App Closed");
@@ -20,8 +29,10 @@ const CustomDrawerContent = (props: any) => {
       <DrawerContentScrollView {...props}>
         <View style={styles.header}>
           <View style={styles.profileCircle}>
-            {/* <Image source={require("@/assets/images/nelson.jpg")}/> */}
-            <Text style={styles.profileText}>RN</Text>
+            <Image
+              source={{ uri: image || defaultImage }}
+              style={styles.avatar}
+            />
           </View>
           <Text style={styles.text}>Welcome, Reece Nelson</Text>
         </View>
@@ -76,7 +87,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: "PoppinsBold",
-    marginTop: 15,
+    marginTop: 25,
     fontSize: 18,
+  },
+  avatar: {
+    width: 140,
+    height: 140,
+    borderRadius: 70,
   },
 });
