@@ -10,6 +10,7 @@ import {
 import { AvatarProvider } from "@/contexts/AvatarContext";
 import { useEffect, useState } from "react";
 import SplashScreen from "./splash";
+import { PaperProvider } from "react-native-paper";
 
 export default function RootLayout() {
   // This is the default configuration
@@ -30,9 +31,15 @@ export default function RootLayout() {
     <GestureHandlerRootView>
       <SafeAreaProvider>
         <StatusBar style="light" backgroundColor="#10497E" />
-        <AvatarProvider>
-        {isLoading ? <SplashScreen /> :  <Stack screenOptions={{ headerShown: false }} />}
-        </AvatarProvider>
+        <PaperProvider>
+          <AvatarProvider>
+            {isLoading ? (
+              <SplashScreen />
+            ) : (
+              <Stack screenOptions={{ headerShown: false }} />
+            )}
+          </AvatarProvider>
+        </PaperProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

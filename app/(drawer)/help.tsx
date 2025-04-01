@@ -54,7 +54,7 @@ const help = () => {
             >
               <Ionicons name="call" size={24} color="#10497E" />
               <Text style={{ fontWeight: "bold", marginLeft: 10 }}>
-                0741 238 952 - IT Officer
+                0749 618 720 - IT Officer
               </Text>
             </View>
           </DataTable.Cell>
