@@ -1,3 +1,4 @@
+import useAuth from "@/hooks/useAuth";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import React from "react";
@@ -12,6 +13,7 @@ import {
 import { ScrollView } from "react-native-gesture-handler";
 
 const Auth = () => {
+  const { isAuthenticated,setAuthenticated } = useAuth();
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -27,7 +29,7 @@ const Auth = () => {
           backgroundColor: "white",
           borderRadius: 20,
           padding: 20,
-          marginTop: 50,
+          marginTop: 200,
         }}
       >
         <ScrollView>
@@ -112,6 +114,9 @@ const Auth = () => {
               alignItems: "center",
               width: "90%",
             }}
+            onPress={() => {
+              setAuthenticated(true)
+            }}
           >
             <Text
               style={{
@@ -159,7 +164,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 70,
+    marginTop: 90,
   },
   image: {
     height: 350,

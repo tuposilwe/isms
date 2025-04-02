@@ -11,15 +11,14 @@ import { AvatarProvider } from "@/contexts/AvatarContext";
 import { useEffect, useState } from "react";
 import SplashScreen from "./splash";
 import { PaperProvider } from "react-native-paper";
+import { AuthProvider } from "@/contexts/AuthContext";
+import useAuth from "@/hooks/useAuth";
+import Auth from "./auth";
 
-export default function RootLayout() {
-  // This is the default configuration
-  configureReanimatedLogger({
-    level: ReanimatedLogLevel.warn,
-    strict: false, // Reanimated runs in strict mode by default
-  });
-
+function RootContent() {
   const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated } = useAuth();
+
   useEffect(() => {
     // Simulate loading process
     setTimeout(() => {
@@ -27,17 +26,30 @@ export default function RootLayout() {
     }, 2300); // Adjust the time as needed
   }, []);
 
+  return isLoading ? (
+    <SplashScreen />
+  ) : isAuthenticated ? (
+    <Stack screenOptions={{ headerShown: false }} />
+  ) : (
+    <Auth />
+  );
+}
+
+export default function RootLayout() {
+  configureReanimatedLogger({
+    level: ReanimatedLogLevel.warn,
+    strict: false,
+  });
+
   return (
     <GestureHandlerRootView>
       <SafeAreaProvider>
         <StatusBar style="light" backgroundColor="#10497E" />
         <PaperProvider>
           <AvatarProvider>
-            {isLoading ? (
-              <SplashScreen />
-            ) : (
-              <Stack screenOptions={{ headerShown: false }} />
-            )}
+            <AuthProvider>
+              <RootContent />
+            </AuthProvider>
           </AvatarProvider>
         </PaperProvider>
       </SafeAreaProvider>
